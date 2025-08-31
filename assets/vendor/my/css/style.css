@@ -1,0 +1,327 @@
+/* ---------------- ROOT VARIABLES ---------------- */
+:root {
+  /* رنگ‌ها */
+  --primary-color: #6a1b9a;
+  --secondary-color: #f3e5f5;
+
+  --background: #f4f6f9;
+  --bg-body: #f5f6fa;
+  --bg-navbar: #1a237e;
+
+  --font-color: #212121;
+  --font-menu: #ffffff;
+
+  --btn-bl: #1565c0;
+  --btn-hover-color: #0b4885;
+
+  /* فونت‌ها */
+  --font-family-main: "Vazir", sans-serif;
+  --font-family-heading: "Yekan Bakh", sans-serif;
+  --font-family-special: "Shabnam", sans-serif;
+
+  /* تنظیمات */
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-main);
+  color: var(--font-color);
+  background: var(--bg-body);
+  line-height: 1.6;
+}
+
+/* ---------------- HEADER ---------------- */
+#header {
+  background-color: var(--bg-navbar);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar-nav .nav-link {
+  color: var(--font-menu);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:active {
+  color: var(--secondary-color);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* ---------------- SLIDER ---------------- */
+.dissolve-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+.slide.active {
+  opacity: 1;
+}
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.slider-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.slider-controls button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.slider-controls button.active {
+  background-color: #fff;
+}
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+.slider-nav:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.slider-prev {
+  left: 10px;
+}
+.slider-next {
+  right: 10px;
+}
+
+/* ---------------- BUTTON ---------------- */
+
+.button {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  border: none;
+  transition: all var(--transition-speed) ease;
+}
+
+.button:hover {
+  background: var(--btn-hover-color);
+  color: #fff;
+}
+
+/* ---------------- TEAM ---------------- */
+#team {
+  background-color: var(--background);
+}
+#team .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#team .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+#team img {
+  height: auto;
+  object-fit: cover;
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer-custom {
+  background-color: var(--bg-navbar);
+  color: var(--font-menu);
+}
+.footer-custom .highlight {
+  color: var(--btn-bl);
+}
+.footer-link {
+  color: var(--font-menu);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-link:hover {
+  color: var(--btn-hover-color);
+}
+.footer-social {
+  color: var(--font-menu);
+  font-size: 1.2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+.footer-social:hover {
+  color: var(--btn-hover-color);
+  transform: scale(1.2);
+}
+.footer-divider {
+  border-color: var(--secondary-color);
+}
+
+/* ---------------- BACK TO TOP ---------------- */
+.fa-arrow-up {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99;
+  background-color: var(--bg-navbar);
+  color: var(--font-menu);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.fa-arrow-up:hover {
+  background-color: var(--btn-hover-color);
+  color: var(--secondary-color);
+}
+.fa-arrow-up.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---------------- COUNTER ---------------- */
+#counter h2 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+#counter h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#counter p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  color: var(--secondary-color);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 576px) {
+  header .navbar-nav {
+    flex-direction: column;
+    background: var(--bg-navbar);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  header img.navbar-brand {
+    width: 70px;
+    height: 70px;
+  }
+  .slide-content h2 {
+    font-size: 1.5rem;
+  }
+  .slide-content p {
+    font-size: 0.9rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  #team .card,
+  #services .card,
+  #portfolio .card,
+  #blog .card {
+    margin-bottom: 1rem;
+  }
+  footer .text-center {
+    font-size: 0.9rem;
+  }
+  .dissolve-slider {
+    height: 70vh;
+  }
+  #counter h2 {
+    font-size: 2rem;
+  }
+  #counter p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 992px) {
+  .slide-content h2 {
+    font-size: 2rem;
+  }
+  .slide-content p {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  #about img {
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .slide-content h2 {
+    font-size: 3rem;
+  }
+  .slide-content p {
+    font-size: 1.25rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
